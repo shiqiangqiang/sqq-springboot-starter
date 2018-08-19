@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>circle.html 循环遍历</title>
+	<meta charset="UTF-8" />
+</head>
+<body>
+	<a th:href="@{/thymeleaf/toCirclePage}">点击访问</a>
+	<br><br>
+	<table>
+		<tr>
+			<th>姓名</th>
+			<th>年龄</th>
+			<th>生日</th>
+			<th>备注</th>
+		</tr>
+		<tr th:each="person:${userList}">
+			<td th:text="${person.name}"></td>
+			<td th:text="${person.age gt 18} ? 你老了 :你很年轻">18岁</td>
+			<td th:text="${#dates.format(person.birthday,'yyyy-MM-dd')}"></td>
+			<td th:utext="${person.describe}"></td>
+		</tr>
+	</table>
+</body>
+</html>

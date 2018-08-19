@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>selected.html</title>
+	<meta charset="UTF-8" />
+</head>
+<body>
+	<a th:href="@{/thymeleaf/toSelectedPage}">点击访问</a>
+	<br><br>
+	<select>
+		<option>选择框</option>
+		<option th:selected="${user.name eq 'wanger'}">王二</option>
+		<option th:selected="${user.name eq 'zhangsan'}">张三</option>
+		<option th:selected="${user.name eq 'lisi'}">李四</option>
+		<option th:selected="${user.name eq 'zhaowu'}">赵五</option>
+	</select>
+</body>
+</html>

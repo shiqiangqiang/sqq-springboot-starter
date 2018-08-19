@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>test.html</title>	
+	<script th:src="@{/static/js/test.js}"></script>
+</head>
+<body>
+	显示一区
+	<div>
+		姓名：<input th:id="${user.name}" th:name="${user.name}" th:value="${user.name}" /> 
+		<br/>
+		年龄：<input th:id="${user.age}" th:name="${user.age}" th:value="${user.age}" /> 
+		<br/>
+		生日：<input th:id="${user.birthday}" th:name="${user.birthday}" th:value="${user.birthday}" /> 
+		<br/>
+		生日（转换格式）：<input th:value="${#dates.format(user.birthday,'yyyy-MM-dd')} " /> 
+	</div>
+	<br/>
+	显示二区
+	<div th:object="${user}">
+		姓名：<input th:id="*{name}" th:name="*{name}" th:value="*{name}" /> 
+		<br/>
+		年龄：<input th:id="*{age}" th:name="*{age}" th:value="*{age}" /> 
+		<br/>
+		生日：<input th:id="*{birthday}" th:name="*{birthday}" th:value="*{birthday}" /> 
+		<br/>
+		生日（转换格式）：<input th:value="*{#dates.format(birthday,'yyyy-MM-dd')}" />
+	</div>
+	<br/>
+	
+	Text与UText的区别
+	<div th:object="${user}">
+		Text(不对内容解析): <span th:text="*{describe}" > text </span>	
+		<br/>
+		UText(对内容中的CSS和样式进行解析后显示): <span th:utext="*{describe}" >utext</span>
+	</div>
+	<br/>
+	
+	URL
+	<div>
+		<a href="http://www.baidu.com">传统网址跳转</a>
+		<br/>
+		<a th:href="@{http://www.baidu.com}">th网址跳转</a>
+	</div>
+	<br/>
+	
+	表单
+	<form th:action="@{/thymeleaf/postForm}" th:method="post" th:object="${user}">
+		用户名：<input type="text" th:field="*{name}" />	<br>
+		用户年龄<input type="text" th:field="*{age}" />	<br>
+		<input type="submit" /> 
+	</form>
+</body>
+</html>
+
+
+
+
+
+

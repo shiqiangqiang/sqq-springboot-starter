@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>switch.html</title>
+	<meta charset="UTF-8" />
+</head>
+<body>
+	<a th:href="@{/thymeleaf/toSwitchPage}">点击访问</a>
+	<br><br>
+	<div th:switch="${user.name}">
+		<!-- 读取资源文件值 -->
+		<p th:case="#{roles.superadmin}">超级管理员</p>
+		<p th:case="#{roles.manager}">普通管理员</p>
+		<p th:case="lee">lee</p>
+		<p th:case="#{roles.commonuser}">普通用户</p>
+		<p th:case="*">其他用户</p>
+	</div>
+</body>
+</html>

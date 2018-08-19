@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>全局异常捕获界面</title>
+</head>
+<body> 
+	<h1 style="color:red">发生错误：</h1>
+	URL:<br>
+	<div th:text="${url}"></div><br>
+	Exception:<br>
+	<div th:text="${exception.message}"></div>
+</body>
+</html>

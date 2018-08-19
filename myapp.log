@@ -1,0 +1,29 @@
+2018-08-18 20:39:07.945  INFO 12632 --- [restartedMain] com.sqq.SqqSpringbootStarterApplication  : Starting SqqSpringbootStarterApplication on Steven with PID 12632 (E:\workspace-eclipse\sqq-springboot-starter\target\classes started by Administrator in E:\workspace-eclipse\sqq-springboot-starter)
+2018-08-18 20:39:07.945  INFO 12632 --- [restartedMain] com.sqq.SqqSpringbootStarterApplication  : No active profile set, falling back to default profiles: default
+2018-08-18 20:39:07.948  INFO 12632 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@1a83749f: startup date [Sat Aug 18 20:39:07 CST 2018]; root of context hierarchy
+2018-08-18 20:39:08.370  INFO 12632 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8089 (http)
+2018-08-18 20:39:08.370  INFO 12632 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-08-18 20:39:08.370  INFO 12632 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.32
+2018-08-18 20:39:08.393  INFO 12632 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/sqq]    : Initializing Spring embedded WebApplicationContext
+2018-08-18 20:39:08.394  INFO 12632 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 446 ms
+2018-08-18 20:39:08.401  INFO 12632 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-08-18 20:39:08.401  INFO 12632 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-08-18 20:39:08.401  INFO 12632 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-08-18 20:39:08.401  INFO 12632 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-08-18 20:39:08.401  INFO 12632 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-08-18 20:39:08.450  INFO 12632 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-08-18 20:39:08.476  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@1a83749f: startup date [Sat Aug 18 20:39:07 CST 2018]; root of context hierarchy
+2018-08-18 20:39:08.482  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/resource/getResourceFileValues],methods=[GET]}" onto public com.sqq.util.BackJsonResult com.sqq.controller.ResourceController.getResourceFileValues()
+2018-08-18 20:39:08.483  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/getUserJson],methods=[GET]}" onto public com.sqq.util.BackJsonResult com.sqq.controller.UserController.getUserJson()
+2018-08-18 20:39:08.484  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/getUser],methods=[GET]}" onto public com.sqq.domain.User com.sqq.controller.UserController.getUser()
+2018-08-18 20:39:08.485  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-08-18 20:39:08.485  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-08-18 20:39:08.490  INFO 12632 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-08-18 20:39:08.490  INFO 12632 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-08-18 20:39:08.540  INFO 12632 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-08-18 20:39:08.548  INFO 12632 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-08-18 20:39:08.560  INFO 12632 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8089 (http) with context path '/sqq'
+2018-08-18 20:39:08.560  INFO 12632 --- [restartedMain] com.sqq.SqqSpringbootStarterApplication  : Started SqqSpringbootStarterApplication in 0.717 seconds (JVM running for 2226.458)
+2018-08-18 20:39:08.562  INFO 12632 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2018-08-18 20:39:20.062  INFO 12632 --- [Thread-148] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@1a83749f: startup date [Sat Aug 18 20:39:07 CST 2018]; root of context hierarchy
+2018-08-18 20:39:20.063  INFO 12632 --- [Thread-148] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
