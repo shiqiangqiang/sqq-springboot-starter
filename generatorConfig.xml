@@ -82,7 +82,10 @@
 	         <property name="useActualColumnNames" value="true" />  
 	    </table> 
 	    
-	    <!-- <table tableName="district"></table> -->
+	    <table tableName="hall"></table>
+	    <table tableName="hallseat"></table>
+	    <table tableName="movie"></table>
+	    <table tableName="shows"></table>
 	    
     </context>
 </generatorConfiguration>    

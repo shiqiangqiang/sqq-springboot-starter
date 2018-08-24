@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sqq.mapper.ShowsMapper">
+  <resultMap id="BaseResultMap" type="com.sqq.domain.Shows">
+    <id column="showId" jdbcType="VARCHAR" property="showid" />
+    <result column="cinemaId" jdbcType="INTEGER" property="cinemaid" />
+    <result column="hallCode" jdbcType="VARCHAR" property="hallcode" />
+    <result column="filmId" jdbcType="INTEGER" property="filmid" />
+    <result column="filmName" jdbcType="VARCHAR" property="filmname" />
+    <result column="language" jdbcType="VARCHAR" property="language" />
+    <result column="showStartTime" jdbcType="VARCHAR" property="showstarttime" />
+    <result column="showVersionType" jdbcType="VARCHAR" property="showversiontype" />
+    <result column="showScreenType" jdbcType="VARCHAR" property="showscreentype" />
+    <result column="settlePriceForMerchant" jdbcType="INTEGER" property="settlepriceformerchant" />
+    <result column="settlePriceForCinema" jdbcType="INTEGER" property="settlepriceforcinema" />
+    <result column="fee" jdbcType="INTEGER" property="fee" />
+    <result column="price" jdbcType="INTEGER" property="price" />
+    <result column="minPrice" jdbcType="INTEGER" property="minprice" />
+    <result column="canSell" jdbcType="BIT" property="cansell" />
+    <result column="movieStandId" jdbcType="VARCHAR" property="moviestandid" />
+    <result column="hallName" jdbcType="VARCHAR" property="hallname" />
+    <result column="createTime" jdbcType="VARCHAR" property="createtime" />
+    <result column="updateTime" jdbcType="VARCHAR" property="updatetime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from shows
+    where showId = #{showid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.sqq.domain.Shows">
+    insert into shows (showId, cinemaId, hallCode, 
+      filmId, filmName, language, 
+      showStartTime, showVersionType, showScreenType, 
+      settlePriceForMerchant, settlePriceForCinema, 
+      fee, price, minPrice, 
+      canSell, movieStandId, hallName, 
+      createTime, updateTime)
+    values (#{showid,jdbcType=VARCHAR}, #{cinemaid,jdbcType=INTEGER}, #{hallcode,jdbcType=VARCHAR}, 
+      #{filmid,jdbcType=INTEGER}, #{filmname,jdbcType=VARCHAR}, #{language,jdbcType=VARCHAR}, 
+      #{showstarttime,jdbcType=VARCHAR}, #{showversiontype,jdbcType=VARCHAR}, #{showscreentype,jdbcType=VARCHAR}, 
+      #{settlepriceformerchant,jdbcType=INTEGER}, #{settlepriceforcinema,jdbcType=INTEGER}, 
+      #{fee,jdbcType=INTEGER}, #{price,jdbcType=INTEGER}, #{minprice,jdbcType=INTEGER}, 
+      #{cansell,jdbcType=BIT}, #{moviestandid,jdbcType=VARCHAR}, #{hallname,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=VARCHAR}, #{updatetime,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.sqq.domain.Shows">
+    update shows
+    set cinemaId = #{cinemaid,jdbcType=INTEGER},
+      hallCode = #{hallcode,jdbcType=VARCHAR},
+      filmId = #{filmid,jdbcType=INTEGER},
+      filmName = #{filmname,jdbcType=VARCHAR},
+      language = #{language,jdbcType=VARCHAR},
+      showStartTime = #{showstarttime,jdbcType=VARCHAR},
+      showVersionType = #{showversiontype,jdbcType=VARCHAR},
+      showScreenType = #{showscreentype,jdbcType=VARCHAR},
+      settlePriceForMerchant = #{settlepriceformerchant,jdbcType=INTEGER},
+      settlePriceForCinema = #{settlepriceforcinema,jdbcType=INTEGER},
+      fee = #{fee,jdbcType=INTEGER},
+      price = #{price,jdbcType=INTEGER},
+      minPrice = #{minprice,jdbcType=INTEGER},
+      canSell = #{cansell,jdbcType=BIT},
+      movieStandId = #{moviestandid,jdbcType=VARCHAR},
+      hallName = #{hallname,jdbcType=VARCHAR},
+      createTime = #{createtime,jdbcType=VARCHAR},
+      updateTime = #{updatetime,jdbcType=VARCHAR}
+    where showId = #{showid,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select showId, cinemaId, hallCode, filmId, filmName, language, showStartTime, showVersionType, 
+    showScreenType, settlePriceForMerchant, settlePriceForCinema, fee, price, minPrice, 
+    canSell, movieStandId, hallName, createTime, updateTime
+    from shows
+    where showId = #{showid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select showId, cinemaId, hallCode, filmId, filmName, language, showStartTime, showVersionType, 
+    showScreenType, settlePriceForMerchant, settlePriceForCinema, fee, price, minPrice, 
+    canSell, movieStandId, hallName, createTime, updateTime
+    from shows
+  </select>
+</mapper>

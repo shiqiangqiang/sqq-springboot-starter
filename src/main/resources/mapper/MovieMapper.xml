@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sqq.mapper.MovieMapper">
+  <resultMap id="BaseResultMap" type="com.sqq.domain.Movie">
+    <id column="filmId" jdbcType="INTEGER" property="filmid" />
+    <result column="filmName" jdbcType="VARCHAR" property="filmname" />
+    <result column="englishname" jdbcType="VARCHAR" property="englishname" />
+    <result column="duration" jdbcType="VARCHAR" property="duration" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="picAddr" jdbcType="VARCHAR" property="picaddr" />
+    <result column="dimensional" jdbcType="VARCHAR" property="dimensional" />
+    <result column="director" jdbcType="VARCHAR" property="director" />
+    <result column="actor" jdbcType="VARCHAR" property="actor" />
+    <result column="thirdFilmId" jdbcType="VARCHAR" property="thirdfilmid" />
+    <result column="catalog" jdbcType="VARCHAR" property="catalog" />
+    <result column="language" jdbcType="VARCHAR" property="language" />
+    <result column="openingDate" jdbcType="VARCHAR" property="openingdate" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="score" jdbcType="VARCHAR" property="score" />
+    <result column="type" jdbcType="CHAR" property="type" />
+    <result column="cityCode" jdbcType="VARCHAR" property="citycode" />
+    <result column="createTime" jdbcType="VARCHAR" property="createtime" />
+    <result column="updateTime" jdbcType="VARCHAR" property="updatetime" />
+    <result column="omsId" jdbcType="VARCHAR" property="omsid" />
+    <result column="regionCode" jdbcType="VARCHAR" property="regioncode" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from movie
+    where filmId = #{filmid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.sqq.domain.Movie">
+    insert into movie (filmId, filmName, englishname, 
+      duration, country, picAddr, 
+      dimensional, director, actor, 
+      thirdFilmId, catalog, language, 
+      openingDate, description, score, 
+      type, cityCode, createTime, 
+      updateTime, omsId, regionCode
+      )
+    values (#{filmid,jdbcType=INTEGER}, #{filmname,jdbcType=VARCHAR}, #{englishname,jdbcType=VARCHAR}, 
+      #{duration,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, #{picaddr,jdbcType=VARCHAR}, 
+      #{dimensional,jdbcType=VARCHAR}, #{director,jdbcType=VARCHAR}, #{actor,jdbcType=VARCHAR}, 
+      #{thirdfilmid,jdbcType=VARCHAR}, #{catalog,jdbcType=VARCHAR}, #{language,jdbcType=VARCHAR}, 
+      #{openingdate,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{score,jdbcType=VARCHAR}, 
+      #{type,jdbcType=CHAR}, #{citycode,jdbcType=VARCHAR}, #{createtime,jdbcType=VARCHAR}, 
+      #{updatetime,jdbcType=VARCHAR}, #{omsid,jdbcType=VARCHAR}, #{regioncode,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.sqq.domain.Movie">
+    update movie
+    set filmName = #{filmname,jdbcType=VARCHAR},
+      englishname = #{englishname,jdbcType=VARCHAR},
+      duration = #{duration,jdbcType=VARCHAR},
+      country = #{country,jdbcType=VARCHAR},
+      picAddr = #{picaddr,jdbcType=VARCHAR},
+      dimensional = #{dimensional,jdbcType=VARCHAR},
+      director = #{director,jdbcType=VARCHAR},
+      actor = #{actor,jdbcType=VARCHAR},
+      thirdFilmId = #{thirdfilmid,jdbcType=VARCHAR},
+      catalog = #{catalog,jdbcType=VARCHAR},
+      language = #{language,jdbcType=VARCHAR},
+      openingDate = #{openingdate,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      score = #{score,jdbcType=VARCHAR},
+      type = #{type,jdbcType=CHAR},
+      cityCode = #{citycode,jdbcType=VARCHAR},
+      createTime = #{createtime,jdbcType=VARCHAR},
+      updateTime = #{updatetime,jdbcType=VARCHAR},
+      omsId = #{omsid,jdbcType=VARCHAR},
+      regionCode = #{regioncode,jdbcType=VARCHAR}
+    where filmId = #{filmid,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select filmId, filmName, englishname, duration, country, picAddr, dimensional, director, 
+    actor, thirdFilmId, catalog, language, openingDate, description, score, type, cityCode, 
+    createTime, updateTime, omsId, regionCode
+    from movie
+    where filmId = #{filmid,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select filmId, filmName, englishname, duration, country, picAddr, dimensional, director, 
+    actor, thirdFilmId, catalog, language, openingDate, description, score, type, cityCode, 
+    createTime, updateTime, omsId, regionCode
+    from movie
+  </select>
+</mapper>
