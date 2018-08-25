@@ -35,7 +35,7 @@ public class CityController {
 	private static final String MSG_SELECT_EXCEPTION = "出现异常，查询失败！";
 	private static final String MSG_SUFFIX = "条记录！";
 	
-	private static final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh24:mm:ss");
+	private static final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	
 	@Autowired
 	private CityService cityService;
@@ -60,6 +60,7 @@ public class CityController {
 	public BackJsonResult updateCity(){
 		log.info("更新城市，当前时间：{}, 操作人：{}", getCurrentTime(), "Jack");
 		City city = new City();
+		city.setId(8002);
 		city.setCityCode("test00001");
 		city.setCityName("修改-测试城市名称");
 		int count = 0;
@@ -78,7 +79,7 @@ public class CityController {
 		String cityCode = "test00001";
 		int count = 0;
 		try {
-			count = cityService.removeCityByCityCode(cityCode);
+			count = cityService.removeCityById(8002);
 		} catch (Exception e) {
 			log.error("删除城市出现异常，cityCode:{}, exception:{}", cityCode, e.getMessage());
 			return BackJsonResult.fail(MSG_DELETE_EXCEPTION);
@@ -96,10 +97,10 @@ public class CityController {
 			log.error("查询城市出现异常，cityList:{}, exception:{}", cityList, e.getMessage());
 			return BackJsonResult.fail(MSG_SELECT_EXCEPTION);
 		}
-		return BackJsonResult.ok(MSG_SELECT_SUCCESS + cityList.size() + MSG_SUFFIX);
+		return BackJsonResult.ok(MSG_SELECT_SUCCESS + cityList.size() + MSG_SUFFIX, cityList);
 	}
 	
-	@RequestMapping("/queryCityByCityCode")
+	/*@RequestMapping("/queryCityByCityCode")
 	public BackJsonResult queryCityByCityCode(String cityCode){
 		log.info("根据城市编码查询城市，当前时间：{}, 操作人：{}", getCurrentTime(), "Jack");
 		List<City> cityList = new ArrayList<City>();
@@ -110,7 +111,7 @@ public class CityController {
 			return BackJsonResult.fail(MSG_SELECT_EXCEPTION);
 		}
 		return BackJsonResult.ok(MSG_SELECT_SUCCESS + cityList.size() + MSG_SUFFIX);
-	}
+	}*/
 	
 	/**
 	 * Description: 获取当前日期时间，格式yyyy-MM-dd hh24:mm:ss

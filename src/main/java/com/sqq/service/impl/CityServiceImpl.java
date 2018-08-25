@@ -29,19 +29,19 @@ public class CityServiceImpl implements CityService {
 		return cityMapper.deleteByPrimaryKey(id);
 	}
 	
-	@Override
-	public List<City> queryCityByCityCode(String cityCode) throws Exception {
-		return cityMapper.selectByCityCode(cityCode);
-	}
+//	@Override
+//	public List<City> queryCityByCityCode(String cityCode) throws Exception {
+//		return cityMapper.selectByCityCode(cityCode);
+//	}
 
 	@Override
 	public List<City> queryAllCity() throws Exception {
 		return cityMapper.selectAll();
 	}
 
-	@Override
-	public int removeCityByCityCode(String cityCode) throws Exception {
-		return cityMapper.deleteByCityCode(cityCode);
-	}
+//	@Override
+//	public int removeCityByCityCode(String cityCode) throws Exception {
+//		return cityMapper.deleteByCityCode(cityCode);
+//	}
 
 }

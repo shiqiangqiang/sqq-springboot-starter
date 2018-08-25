@@ -14,10 +14,6 @@
     delete from city
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByCityCode" parameterType="java.lang.String">
-    delete from city
-    where cityCode = #{cityCode,jdbcType=VARCHAR}
-  </delete>
   <insert id="insert" parameterType="com.sqq.domain.City">
     insert into city (id, cityName, cityCode, 
       createTime, updateTime, locationId, 
@@ -40,11 +36,6 @@
     select id, cityName, cityCode, createTime, updateTime, locationId, acronym
     from city
     where id = #{id,jdbcType=INTEGER}
-  </select>
-  <select id="selectByCityCode" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select id, cityName, cityCode, createTime, updateTime, locationId, acronym
-    from city
-    where cityCode = #{cityCode,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select id, cityName, cityCode, createTime, updateTime, locationId, acronym

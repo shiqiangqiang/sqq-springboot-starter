@@ -11,9 +11,9 @@ public interface CityService {
 	
 	int removeCityById(Integer id) throws Exception;
 	
-	int removeCityByCityCode(String cityCode) throws Exception;
+//	int removeCityByCityCode(String cityCode) throws Exception;
 	
-	List<City> queryCityByCityCode(String cityCode) throws Exception;
+//	List<City> queryCityByCityCode(String cityCode) throws Exception;
 	
 	List<City> queryAllCity() throws Exception;
 	

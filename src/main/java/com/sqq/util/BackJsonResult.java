@@ -45,6 +45,10 @@ public class BackJsonResult {
 		return new BackJsonResult(data);
 	}
 	
+	public static BackJsonResult ok(String msg, Object data){
+		return new BackJsonResult(200, msg, data);
+	}
+	
 	/**
 	 * Description: 返回给门户成功状态
 	 * @return
