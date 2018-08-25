@@ -8,7 +8,9 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sqq.domain.City;
@@ -60,7 +62,7 @@ public class CityController {
 	public BackJsonResult updateCity(){
 		log.info("更新城市，当前时间：{}, 操作人：{}", getCurrentTime(), "Jack");
 		City city = new City();
-		city.setId(8002);
+		city.setId(8003);
 		city.setCityCode("test00001");
 		city.setCityName("修改-测试城市名称");
 		int count = 0;
@@ -87,31 +89,46 @@ public class CityController {
 		return BackJsonResult.ok(MSG_DELETE_SUCCESS + count + MSG_SUFFIX);
 	}
 	
-	@RequestMapping("/queryAllCity")
-	public BackJsonResult queryAllCity(){
-		log.info("查询城市，当前时间：{}, 操作人：{}", getCurrentTime(), "Jack");
+	@RequestMapping("/queryCityById")
+	public BackJsonResult queryCityById(Integer id){
+		log.info("根据城市编码查询城市，当前时间：{}, 操作人：{}", getCurrentTime(), "Jack");
 		List<City> cityList = new ArrayList<City>();
 		try {
-			cityList = cityService.queryAllCity();
+			City city = cityService.queryById(id);
+			cityList.add(city);
 		} catch (Exception e) {
-			log.error("查询城市出现异常，cityList:{}, exception:{}", cityList, e.getMessage());
+			log.error("根据城市编码查询城市出现异常，cityList:{}, exception:{}", cityList, e.getMessage());
 			return BackJsonResult.fail(MSG_SELECT_EXCEPTION);
 		}
 		return BackJsonResult.ok(MSG_SELECT_SUCCESS + cityList.size() + MSG_SUFFIX, cityList);
 	}
 	
-	/*@RequestMapping("/queryCityByCityCode")
-	public BackJsonResult queryCityByCityCode(String cityCode){
-		log.info("根据城市编码查询城市，当前时间：{}, 操作人：{}", getCurrentTime(), "Jack");
+	/**
+	 * Description: 分页查询城市列表
+	 * @param pageNo	页码
+	 * @return
+	 * @author shiqiangqiang  
+	 * @date 2018年8月25日
+	 */
+	@GetMapping("/queryCityListPaged")
+	public BackJsonResult queryCityListPaged(@RequestParam("pageNum") Integer pageNum){
+		if (pageNum == null){
+			pageNum = 1;
+		}
+		int pageSize = 10;
+		log.info("分页查询城市列表，当前时间：{}, 操作人：{}", getCurrentTime(), "Jack");
 		List<City> cityList = new ArrayList<City>();
+		City city = null;
+//		City city = new City();
+//		city.setUpdateTime("2018-04-25 20:46:03");
 		try {
-			cityList = cityService.queryCityByCityCode(cityCode);
+			cityList = cityService.queryCityListPaged(city, pageNum, pageSize);
 		} catch (Exception e) {
-			log.error("根据城市编码查询城市出现异常，cityList:{}, exception:{}", cityList, e.getMessage());
+			log.error("分页查询城市出现异常，pageNum:{}, pageSize:{}, cityList:{}, exception:{}", pageNum, pageSize, cityList, e.getMessage());
 			return BackJsonResult.fail(MSG_SELECT_EXCEPTION);
 		}
-		return BackJsonResult.ok(MSG_SELECT_SUCCESS + cityList.size() + MSG_SUFFIX);
-	}*/
+		return BackJsonResult.ok(MSG_SELECT_SUCCESS + cityList.size() + MSG_SUFFIX, cityList);
+	}
 	
 	/**
 	 * Description: 获取当前日期时间，格式yyyy-MM-dd hh24:mm:ss
