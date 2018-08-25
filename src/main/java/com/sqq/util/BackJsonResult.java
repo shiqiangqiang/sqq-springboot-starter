@@ -51,8 +51,8 @@ public class BackJsonResult {
 	 * @author shiqiangqiang  
 	 * @date 2018年8月14日
 	 */
-	public static BackJsonResult ok(){
-		return new BackJsonResult(200, "success");
+	public static BackJsonResult ok(String msg){
+		return new BackJsonResult(200, msg);
 	}
 	
 	/**

@@ -14,45 +14,9 @@
     delete from city
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.sqq.domain.City">
-    insert into city (id, cityName, cityCode, 
-      createTime, updateTime, locationId, 
-      acronym)
-    values (#{id,jdbcType=INTEGER}, #{cityName,jdbcType=VARCHAR}, #{cityCode,jdbcType=VARCHAR}, 
-      #{createTime,jdbcType=VARCHAR}, #{updateTime,jdbcType=VARCHAR}, #{locationId,jdbcType=VARCHAR}, 
-      #{acronym,jdbcType=VARCHAR})
-  </insert>
-  <update id="updateByPrimaryKey" parameterType="com.sqq.domain.City">
-    update city
-    set cityName = #{cityName,jdbcType=VARCHAR},
-      cityCode = #{cityCode,jdbcType=VARCHAR},
-      createTime = #{createTime,jdbcType=VARCHAR},
-      updateTime = #{updateTime,jdbcType=VARCHAR},
-      locationId = #{locationId,jdbcType=VARCHAR},
-      acronym = #{acronym,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select id, cityName, cityCode, createTime, updateTime, locationId, acronym
-    from city
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-  <select id="selectAll" resultMap="BaseResultMap">
-    select id, cityName, cityCode, createTime, updateTime, locationId, acronym
-    from city
-  </select>
-  <resultMap id="BaseResultMap" type="com.sqq.domain.City">
-    <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="cityName" jdbcType="VARCHAR" property="cityName" />
-    <result column="cityCode" jdbcType="VARCHAR" property="cityCode" />
-    <result column="createTime" jdbcType="VARCHAR" property="createTime" />
-    <result column="updateTime" jdbcType="VARCHAR" property="updateTime" />
-    <result column="locationId" jdbcType="VARCHAR" property="locationId" />
-    <result column="acronym" jdbcType="VARCHAR" property="acronym" />
-  </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <delete id="deleteByCityCode" parameterType="java.lang.String">
     delete from city
-    where id = #{id,jdbcType=INTEGER}
+    where cityCode = #{cityCode,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.sqq.domain.City">
     insert into city (id, cityName, cityCode, 
@@ -77,45 +41,10 @@
     from city
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <select id="selectAll" resultMap="BaseResultMap">
+  <select id="selectByCityCode" parameterType="java.lang.String" resultMap="BaseResultMap">
     select id, cityName, cityCode, createTime, updateTime, locationId, acronym
     from city
-  </select>
-  <resultMap id="BaseResultMap" type="com.sqq.domain.City">
-    <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="cityName" jdbcType="VARCHAR" property="cityName" />
-    <result column="cityCode" jdbcType="VARCHAR" property="cityCode" />
-    <result column="createTime" jdbcType="VARCHAR" property="createTime" />
-    <result column="updateTime" jdbcType="VARCHAR" property="updateTime" />
-    <result column="locationId" jdbcType="VARCHAR" property="locationId" />
-    <result column="acronym" jdbcType="VARCHAR" property="acronym" />
-  </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from city
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.sqq.domain.City">
-    insert into city (id, cityName, cityCode, 
-      createTime, updateTime, locationId, 
-      acronym)
-    values (#{id,jdbcType=INTEGER}, #{cityName,jdbcType=VARCHAR}, #{cityCode,jdbcType=VARCHAR}, 
-      #{createTime,jdbcType=VARCHAR}, #{updateTime,jdbcType=VARCHAR}, #{locationId,jdbcType=VARCHAR}, 
-      #{acronym,jdbcType=VARCHAR})
-  </insert>
-  <update id="updateByPrimaryKey" parameterType="com.sqq.domain.City">
-    update city
-    set cityName = #{cityName,jdbcType=VARCHAR},
-      cityCode = #{cityCode,jdbcType=VARCHAR},
-      createTime = #{createTime,jdbcType=VARCHAR},
-      updateTime = #{updateTime,jdbcType=VARCHAR},
-      locationId = #{locationId,jdbcType=VARCHAR},
-      acronym = #{acronym,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select id, cityName, cityCode, createTime, updateTime, locationId, acronym
-    from city
-    where id = #{id,jdbcType=INTEGER}
+    where cityCode = #{cityCode,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select id, cityName, cityCode, createTime, updateTime, locationId, acronym

@@ -27,7 +27,7 @@ public class ErrorController {
 	@ResponseBody
 	public BackJsonResult getAjaxError(){
 		int i = 1/0;
-		return BackJsonResult.ok(); 
+		return BackJsonResult.ok("success"); 
 	}
 	
 }	
