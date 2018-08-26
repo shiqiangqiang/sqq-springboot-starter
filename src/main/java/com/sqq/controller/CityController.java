@@ -30,7 +30,7 @@ public class CityController {
 	private static final String MSG_SAVE_SUCCESS = "成功保存";
 	private static final String MSG_SAVE_EXCEPTION = "出现异常，保存失败！";
 	private static final String MSG_UPDATE_SUCCESS = "成功更新";
-	private static final String MSG_UPDATE_EXCEPTION = "出现异常，保存失败！";
+	private static final String MSG_UPDATE_EXCEPTION = "出现异常，更新失败！";
 	private static final String MSG_DELETE_SUCCESS = "成功删除";
 	private static final String MSG_DELETE_EXCEPTION = "出现异常，删除失败！";
 	private static final String MSG_SELECT_SUCCESS = "成功查询";
@@ -46,8 +46,9 @@ public class CityController {
 	public BackJsonResult saveCity(){
 		log.info("保存城市，当前时间：{}, 操作人：{}", getCurrentTime(), "Jack");
 		City city = new City();
-		city.setCityCode("test00001");
-		city.setCityName("测试城市名称");
+		city.setCityCode("test00002");
+		city.setCityName("测试城市名称2");
+		city.setUpdateTime(new Date());
 		int count = 0;
 		try {
 			count = cityService.saveCity(city);
@@ -59,17 +60,22 @@ public class CityController {
 	}
 	
 	@RequestMapping("/updateCity")
-	public BackJsonResult updateCity(){
+	public BackJsonResult updateCity(Integer id){
 		log.info("更新城市，当前时间：{}, 操作人：{}", getCurrentTime(), "Jack");
-		City city = new City();
-		city.setId(8003);
-		city.setCityCode("test00001");
-		city.setCityName("修改-测试城市名称");
+		City city;
 		int count = 0;
 		try {
+			city = cityService.queryById(id);
+			if (city == null){
+				log.info("id为{}的城市不存在！", id);
+				return BackJsonResult.fail(MSG_UPDATE_EXCEPTION);
+			}
+			city.setCityName("修改-测试城市名称--4");
+			city.setAcronym("ceshichengshi");
+			city.setUpdateTime(new Date());
 			count = cityService.changeCity(city);
 		} catch (Exception e) {
-			log.error("修改城市出现异常，city:{}, exception:{}", city, e.getMessage());
+			log.error("修改城市出现异常, exception:{}", e.getMessage());
 			return BackJsonResult.fail(MSG_UPDATE_EXCEPTION);
 		}
 		return BackJsonResult.ok(MSG_UPDATE_SUCCESS + count + MSG_SUFFIX);
@@ -119,8 +125,6 @@ public class CityController {
 		log.info("分页查询城市列表，当前时间：{}, 操作人：{}", getCurrentTime(), "Jack");
 		List<City> cityList = new ArrayList<City>();
 		City city = null;
-//		City city = new City();
-//		city.setUpdateTime("2018-04-25 20:46:03");
 		try {
 			cityList = cityService.queryCityListPaged(city, pageNum, pageSize);
 		} catch (Exception e) {

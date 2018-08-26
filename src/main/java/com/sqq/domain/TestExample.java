@@ -1,16 +1,17 @@
 package com.sqq.domain;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
-public class DistrictExample {
+public class TestExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public DistrictExample() {
+    public TestExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -164,146 +165,6 @@ public class DistrictExample {
             return (Criteria) this;
         }
 
-        public Criteria andRegionCodeIsNull() {
-            addCriterion("regionCode is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andRegionCodeIsNotNull() {
-            addCriterion("regionCode is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andRegionCodeEqualTo(String value) {
-            addCriterion("regionCode =", value, "regionCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andRegionCodeNotEqualTo(String value) {
-            addCriterion("regionCode <>", value, "regionCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andRegionCodeGreaterThan(String value) {
-            addCriterion("regionCode >", value, "regionCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andRegionCodeGreaterThanOrEqualTo(String value) {
-            addCriterion("regionCode >=", value, "regionCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andRegionCodeLessThan(String value) {
-            addCriterion("regionCode <", value, "regionCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andRegionCodeLessThanOrEqualTo(String value) {
-            addCriterion("regionCode <=", value, "regionCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andRegionCodeLike(String value) {
-            addCriterion("regionCode like", value, "regionCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andRegionCodeNotLike(String value) {
-            addCriterion("regionCode not like", value, "regionCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andRegionCodeIn(List<String> values) {
-            addCriterion("regionCode in", values, "regionCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andRegionCodeNotIn(List<String> values) {
-            addCriterion("regionCode not in", values, "regionCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andRegionCodeBetween(String value1, String value2) {
-            addCriterion("regionCode between", value1, value2, "regionCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andRegionCodeNotBetween(String value1, String value2) {
-            addCriterion("regionCode not between", value1, value2, "regionCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andRegionNameIsNull() {
-            addCriterion("regionName is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andRegionNameIsNotNull() {
-            addCriterion("regionName is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andRegionNameEqualTo(String value) {
-            addCriterion("regionName =", value, "regionName");
-            return (Criteria) this;
-        }
-
-        public Criteria andRegionNameNotEqualTo(String value) {
-            addCriterion("regionName <>", value, "regionName");
-            return (Criteria) this;
-        }
-
-        public Criteria andRegionNameGreaterThan(String value) {
-            addCriterion("regionName >", value, "regionName");
-            return (Criteria) this;
-        }
-
-        public Criteria andRegionNameGreaterThanOrEqualTo(String value) {
-            addCriterion("regionName >=", value, "regionName");
-            return (Criteria) this;
-        }
-
-        public Criteria andRegionNameLessThan(String value) {
-            addCriterion("regionName <", value, "regionName");
-            return (Criteria) this;
-        }
-
-        public Criteria andRegionNameLessThanOrEqualTo(String value) {
-            addCriterion("regionName <=", value, "regionName");
-            return (Criteria) this;
-        }
-
-        public Criteria andRegionNameLike(String value) {
-            addCriterion("regionName like", value, "regionName");
-            return (Criteria) this;
-        }
-
-        public Criteria andRegionNameNotLike(String value) {
-            addCriterion("regionName not like", value, "regionName");
-            return (Criteria) this;
-        }
-
-        public Criteria andRegionNameIn(List<String> values) {
-            addCriterion("regionName in", values, "regionName");
-            return (Criteria) this;
-        }
-
-        public Criteria andRegionNameNotIn(List<String> values) {
-            addCriterion("regionName not in", values, "regionName");
-            return (Criteria) this;
-        }
-
-        public Criteria andRegionNameBetween(String value1, String value2) {
-            addCriterion("regionName between", value1, value2, "regionName");
-            return (Criteria) this;
-        }
-
-        public Criteria andRegionNameNotBetween(String value1, String value2) {
-            addCriterion("regionName not between", value1, value2, "regionName");
-            return (Criteria) this;
-        }
-
         public Criteria andCreateTimeIsNull() {
             addCriterion("createTime is null");
             return (Criteria) this;
@@ -314,62 +175,52 @@ public class DistrictExample {
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeEqualTo(String value) {
+        public Criteria andCreateTimeEqualTo(Date value) {
             addCriterion("createTime =", value, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeNotEqualTo(String value) {
+        public Criteria andCreateTimeNotEqualTo(Date value) {
             addCriterion("createTime <>", value, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeGreaterThan(String value) {
+        public Criteria andCreateTimeGreaterThan(Date value) {
             addCriterion("createTime >", value, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeGreaterThanOrEqualTo(String value) {
+        public Criteria andCreateTimeGreaterThanOrEqualTo(Date value) {
             addCriterion("createTime >=", value, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeLessThan(String value) {
+        public Criteria andCreateTimeLessThan(Date value) {
             addCriterion("createTime <", value, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeLessThanOrEqualTo(String value) {
+        public Criteria andCreateTimeLessThanOrEqualTo(Date value) {
             addCriterion("createTime <=", value, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeLike(String value) {
-            addCriterion("createTime like", value, "createTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andCreateTimeNotLike(String value) {
-            addCriterion("createTime not like", value, "createTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andCreateTimeIn(List<String> values) {
+        public Criteria andCreateTimeIn(List<Date> values) {
             addCriterion("createTime in", values, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeNotIn(List<String> values) {
+        public Criteria andCreateTimeNotIn(List<Date> values) {
             addCriterion("createTime not in", values, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeBetween(String value1, String value2) {
+        public Criteria andCreateTimeBetween(Date value1, Date value2) {
             addCriterion("createTime between", value1, value2, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeNotBetween(String value1, String value2) {
+        public Criteria andCreateTimeNotBetween(Date value1, Date value2) {
             addCriterion("createTime not between", value1, value2, "createTime");
             return (Criteria) this;
         }
@@ -384,133 +235,53 @@ public class DistrictExample {
             return (Criteria) this;
         }
 
-        public Criteria andUpdateTimeEqualTo(String value) {
+        public Criteria andUpdateTimeEqualTo(Date value) {
             addCriterion("updateTime =", value, "updateTime");
             return (Criteria) this;
         }
 
-        public Criteria andUpdateTimeNotEqualTo(String value) {
+        public Criteria andUpdateTimeNotEqualTo(Date value) {
             addCriterion("updateTime <>", value, "updateTime");
             return (Criteria) this;
         }
 
-        public Criteria andUpdateTimeGreaterThan(String value) {
+        public Criteria andUpdateTimeGreaterThan(Date value) {
             addCriterion("updateTime >", value, "updateTime");
             return (Criteria) this;
         }
 
-        public Criteria andUpdateTimeGreaterThanOrEqualTo(String value) {
+        public Criteria andUpdateTimeGreaterThanOrEqualTo(Date value) {
             addCriterion("updateTime >=", value, "updateTime");
             return (Criteria) this;
         }
 
-        public Criteria andUpdateTimeLessThan(String value) {
+        public Criteria andUpdateTimeLessThan(Date value) {
             addCriterion("updateTime <", value, "updateTime");
             return (Criteria) this;
         }
 
-        public Criteria andUpdateTimeLessThanOrEqualTo(String value) {
+        public Criteria andUpdateTimeLessThanOrEqualTo(Date value) {
             addCriterion("updateTime <=", value, "updateTime");
             return (Criteria) this;
         }
 
-        public Criteria andUpdateTimeLike(String value) {
-            addCriterion("updateTime like", value, "updateTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andUpdateTimeNotLike(String value) {
-            addCriterion("updateTime not like", value, "updateTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andUpdateTimeIn(List<String> values) {
+        public Criteria andUpdateTimeIn(List<Date> values) {
             addCriterion("updateTime in", values, "updateTime");
             return (Criteria) this;
         }
 
-        public Criteria andUpdateTimeNotIn(List<String> values) {
+        public Criteria andUpdateTimeNotIn(List<Date> values) {
             addCriterion("updateTime not in", values, "updateTime");
             return (Criteria) this;
         }
 
-        public Criteria andUpdateTimeBetween(String value1, String value2) {
+        public Criteria andUpdateTimeBetween(Date value1, Date value2) {
             addCriterion("updateTime between", value1, value2, "updateTime");
             return (Criteria) this;
         }
 
-        public Criteria andUpdateTimeNotBetween(String value1, String value2) {
+        public Criteria andUpdateTimeNotBetween(Date value1, Date value2) {
             addCriterion("updateTime not between", value1, value2, "updateTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andCityCodeIsNull() {
-            addCriterion("cityCode is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andCityCodeIsNotNull() {
-            addCriterion("cityCode is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andCityCodeEqualTo(String value) {
-            addCriterion("cityCode =", value, "cityCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andCityCodeNotEqualTo(String value) {
-            addCriterion("cityCode <>", value, "cityCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andCityCodeGreaterThan(String value) {
-            addCriterion("cityCode >", value, "cityCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andCityCodeGreaterThanOrEqualTo(String value) {
-            addCriterion("cityCode >=", value, "cityCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andCityCodeLessThan(String value) {
-            addCriterion("cityCode <", value, "cityCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andCityCodeLessThanOrEqualTo(String value) {
-            addCriterion("cityCode <=", value, "cityCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andCityCodeLike(String value) {
-            addCriterion("cityCode like", value, "cityCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andCityCodeNotLike(String value) {
-            addCriterion("cityCode not like", value, "cityCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andCityCodeIn(List<String> values) {
-            addCriterion("cityCode in", values, "cityCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andCityCodeNotIn(List<String> values) {
-            addCriterion("cityCode not in", values, "cityCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andCityCodeBetween(String value1, String value2) {
-            addCriterion("cityCode between", value1, value2, "cityCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andCityCodeNotBetween(String value1, String value2) {
-            addCriterion("cityCode not between", value1, value2, "cityCode");
             return (Criteria) this;
         }
     }

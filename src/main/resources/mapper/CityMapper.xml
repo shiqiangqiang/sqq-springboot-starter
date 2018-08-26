@@ -5,8 +5,8 @@
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="cityName" jdbcType="VARCHAR" property="cityName" />
     <result column="cityCode" jdbcType="VARCHAR" property="cityCode" />
-    <result column="createTime" jdbcType="VARCHAR" property="createTime" />
-    <result column="updateTime" jdbcType="VARCHAR" property="updateTime" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="updateTime" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="locationId" jdbcType="VARCHAR" property="locationId" />
     <result column="acronym" jdbcType="VARCHAR" property="acronym" />
   </resultMap>
@@ -95,7 +95,7 @@
   <select id="selectAll" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from city 
+    from city
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from city
@@ -112,7 +112,7 @@
       createTime, updateTime, locationId, 
       acronym)
     values (#{id,jdbcType=INTEGER}, #{cityName,jdbcType=VARCHAR}, #{cityCode,jdbcType=VARCHAR}, 
-      #{createTime,jdbcType=VARCHAR}, #{updateTime,jdbcType=VARCHAR}, #{locationId,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{locationId,jdbcType=VARCHAR}, 
       #{acronym,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.sqq.domain.City">
@@ -151,10 +151,10 @@
         #{cityCode,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null">
-        #{createTime,jdbcType=VARCHAR},
+        #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="updateTime != null">
-        #{updateTime,jdbcType=VARCHAR},
+        #{updateTime,jdbcType=TIMESTAMP},
       </if>
       <if test="locationId != null">
         #{locationId,jdbcType=VARCHAR},
@@ -183,10 +183,10 @@
         cityCode = #{record.cityCode,jdbcType=VARCHAR},
       </if>
       <if test="record.createTime != null">
-        createTime = #{record.createTime,jdbcType=VARCHAR},
+        createTime = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.updateTime != null">
-        updateTime = #{record.updateTime,jdbcType=VARCHAR},
+        updateTime = #{record.updateTime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.locationId != null">
         locationId = #{record.locationId,jdbcType=VARCHAR},
@@ -204,8 +204,8 @@
     set id = #{record.id,jdbcType=INTEGER},
       cityName = #{record.cityName,jdbcType=VARCHAR},
       cityCode = #{record.cityCode,jdbcType=VARCHAR},
-      createTime = #{record.createTime,jdbcType=VARCHAR},
-      updateTime = #{record.updateTime,jdbcType=VARCHAR},
+      createTime = #{record.createTime,jdbcType=TIMESTAMP},
+      updateTime = #{record.updateTime,jdbcType=TIMESTAMP},
       locationId = #{record.locationId,jdbcType=VARCHAR},
       acronym = #{record.acronym,jdbcType=VARCHAR}
     <if test="_parameter != null">
@@ -222,10 +222,10 @@
         cityCode = #{cityCode,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null">
-        createTime = #{createTime,jdbcType=VARCHAR},
+        createTime = #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="updateTime != null">
-        updateTime = #{updateTime,jdbcType=VARCHAR},
+        updateTime = #{updateTime,jdbcType=TIMESTAMP},
       </if>
       <if test="locationId != null">
         locationId = #{locationId,jdbcType=VARCHAR},
@@ -240,8 +240,8 @@
     update city
     set cityName = #{cityName,jdbcType=VARCHAR},
       cityCode = #{cityCode,jdbcType=VARCHAR},
-      createTime = #{createTime,jdbcType=VARCHAR},
-      updateTime = #{updateTime,jdbcType=VARCHAR},
+      createTime = #{createTime,jdbcType=TIMESTAMP},
+      updateTime = #{updateTime,jdbcType=TIMESTAMP},
       locationId = #{locationId,jdbcType=VARCHAR},
       acronym = #{acronym,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
