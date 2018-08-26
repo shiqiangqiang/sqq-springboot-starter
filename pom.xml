@@ -103,10 +103,24 @@
 		</dependency>
 		
 		<!-- 引入redis依赖 -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-redis</artifactId>
+	   	<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-data-redis</artifactId>
+		    <version>1.5.7.RELEASE</version><!--$NO-MVN-MAN-VER$-->
 		</dependency>
+		<!--  开启缓存 -->
+	    <dependency>
+	        <groupId>org.springframework.boot</groupId>
+	        <artifactId>spring-boot-starter-cache</artifactId>
+	    </dependency>
+	    
+	    <!-- 处理json -->
+	    <dependency>
+		    <groupId>com.alibaba</groupId>
+		    <artifactId>fastjson</artifactId>
+		    <version>1.2.48</version>
+		</dependency>
+	    
 		
 	</dependencies>
 

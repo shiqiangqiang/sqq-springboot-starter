@@ -1,5 +1,6 @@
 package com.sqq.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -13,7 +14,10 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
  * @author shiqiangqiang
  * 
  */
-public class User {
+public class User implements Serializable{
+	
+	private static final long serialVersionUID = -1L;
+	
 	private String name;
 	
 	@JsonIgnore   // 不想将password返回给前端
