@@ -20,7 +20,7 @@ public class CityServiceImpl implements CityService {
 	@Override
 	@Transactional(propagation=Propagation.REQUIRED)
 	public int saveCity(City city) throws Exception {
-		return cityMapper.insert(city);
+		return cityMapper.insertSelective(city);
 	}
 
 	@Override
