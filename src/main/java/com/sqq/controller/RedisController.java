@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.alibaba.fastjson.JSON;
-import com.sqq.domain.City;
 import com.sqq.domain.User;
 import com.sqq.redis.RedisOperator;
 import com.sqq.redis.StringRedisOperator;
