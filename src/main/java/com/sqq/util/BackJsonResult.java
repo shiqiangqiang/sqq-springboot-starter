@@ -4,7 +4,7 @@ package com.sqq.util;
  * 这个类是提供给门户的用的
  * 返回状态码： 
  * 			200：成功
- * 			500：错误，错误信息在msg字段中
+ * 			400：业务异常，错误信息在msg字段中
  * 			501：bean验证错误
  * 			502：拦截器拦截到用户token出错
  * 			555：异常抛出信息
@@ -67,7 +67,7 @@ public class BackJsonResult {
 	 * @date 2018年8月14日
 	 */
 	public static BackJsonResult fail(String msg){
-		return new BackJsonResult(500, msg);
+		return new BackJsonResult(400, msg);
 	}
 	
 	/**
