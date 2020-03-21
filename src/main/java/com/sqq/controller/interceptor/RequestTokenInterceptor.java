@@ -75,7 +75,8 @@ public class RequestTokenInterceptor implements HandlerInterceptor{
         if (!clientToken.equals(serverToken)){
             return true;
         }
-
+        // 校验通过后，删除原有的token
+        redisOperator.deleteWithPrefix(RequestConstaint.REQUEST_TOKEN_REDIS_KEY_PREFIX, userId);
         return false;
     }
 
