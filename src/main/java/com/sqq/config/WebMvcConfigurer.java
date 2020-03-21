@@ -29,7 +29,7 @@ public class WebMvcConfigurer extends WebMvcConfigurerAdapter{
 		 */
 		// 先被one拦截，后被two拦截，如果one拦截后返回false
 		// 进行token拦截校验
-		registry.addInterceptor(requestTokenInterceptor).addPathPatterns("/one/**");
+		registry.addInterceptor(requestTokenInterceptor).addPathPatterns("/one/**","/city/**");
 		// 同时增加one和two两个拦截器
 		// registry.addInterceptor(new TwoInterceptor()).addPathPatterns("/two/**").addPathPatterns("/one/**");
 		super.addInterceptors(registry);
