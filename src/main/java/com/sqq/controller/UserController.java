@@ -29,7 +29,8 @@ public class UserController {
 		String password = "123123";
 		int age = 20;
 		Date birthday = new Date();
-		User user = new User(name, password, age, birthday,null);
+		User user = new User(name, password, age, birthday,"这家伙很懒");
+		System.out.println("输出: " + user);
 		return BackJsonResult.ok(user);
 	}
 }

@@ -1,22 +1,19 @@
 package com.sqq.domain;
 
-import java.io.Serializable;
-import java.util.Date;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.sqq.model.BaseModel;
+
+import java.util.Date;
 
 /**
  * 用户类
  * @author shiqiangqiang
  * 
  */
-public class User implements Serializable{
-	
-	private static final long serialVersionUID = -1L;
+public class User extends BaseModel {
 	
 	private String name;
 	
