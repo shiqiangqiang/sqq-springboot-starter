@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
  *
  * 在ReflectClass类中还提供了两种反射PowerManager.shutdown()的方法，在调用的时候会输出如下log，提示没有相关权限。之前在项目中尝试反射其他方法的时候还遇到过有权限和没权限返回的值不一样的情况。如果源码中明确进行了权限验证，而你的应用又无法获得这个权限的话，建议就不要浪费时间反射了。
  *
+ * 作者：peter_RD_nj
  * 链接：https://www.jianshu.com/p/9be58ee20dee
  *
  * @author: shiqiangqiang
