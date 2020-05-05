@@ -30,6 +30,7 @@ public class CityServiceTimer {
 	
 	public void saveCity(){
 		String currentTime = getCurrentTime();
+		log.info("测试日志......");
 		log.info("开始定时新增城市，当前时间：{}, 操作人：{}", currentTime, "Jack");
 		City city = new City();
 		city.setCityCode(currentTime);
