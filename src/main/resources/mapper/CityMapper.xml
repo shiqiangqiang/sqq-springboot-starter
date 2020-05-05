@@ -9,6 +9,7 @@
     <result column="updateTime" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="locationId" jdbcType="VARCHAR" property="locationId" />
     <result column="acronym" jdbcType="VARCHAR" property="acronym" />
+    
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
