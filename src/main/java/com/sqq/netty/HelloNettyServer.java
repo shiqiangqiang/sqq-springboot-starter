@@ -12,7 +12,7 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
  * @createDate: 2020/4/20
  * @version: 1.0
  */
-public class HelloNetty {
+public class HelloNettyServer {
 
     public static void main(String[] args) throws InterruptedException {
         // 定义一对线程组
