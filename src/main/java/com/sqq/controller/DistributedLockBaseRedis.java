@@ -3,6 +3,7 @@ package com.sqq.controller;
 import com.sqq.util.BackJsonResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,7 +29,7 @@ public class DistributedLockBaseRedis {
      * 尝试手工编写分布式锁，模拟高并发售卖产品
      * @return
      */
-    @PostMapping("mockHighConcurrentcySale")
+    @GetMapping ("mockHighConcurrentcySale")
     public BackJsonResult mockHighConcurrentcySale(){
         try {
             String clientId = UUID.randomUUID().toString();
