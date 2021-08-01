@@ -22,7 +22,7 @@ public class RequestFilter implements Filter {
      */
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        log.info("LoginFilter init, has come in... filterConfig:{}", filterConfig);
+       // log.info("LoginFilter init, has come in... filterConfig:{}", filterConfig);
     }
 
     /*
@@ -31,7 +31,7 @@ public class RequestFilter implements Filter {
      */
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        log.info("LoginFilter doFilter, has come in... ");
+        // log.info("LoginFilter doFilter, has come in... ");
         filterChain.doFilter(servletRequest, servletResponse);
 
     }
@@ -41,6 +41,6 @@ public class RequestFilter implements Filter {
      */
     @Override
     public void destroy() {
-        log.info("LoginFilter destroy, has come in... ");
+        // log.info("LoginFilter destroy, has come in... ");
     }
 }
