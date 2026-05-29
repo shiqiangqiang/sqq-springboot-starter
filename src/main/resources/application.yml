@@ -45,14 +45,14 @@ spring:
       additional-exclude: static/**
 
   datasource:
-    url: jdbc:mysql://${DB_HOST:local-mysql}:${DB_PORT:3306}/${DB_NAME:demo_db}?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://${DB_HOST:172.24.17.63}:${DB_PORT:3306}/${DB_NAME:demo_db}?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
     username: ${DB_USER:root}
     password: ${DB_PWD:root123456}
     driver-class-name: com.mysql.jdbc.Driver
 
   redis:
     database: ${REDIS_DB:0}
-    host: ${REDIS_HOST:local-redis}
+    host: ${REDIS_HOST:172.24.17.63}
     port: ${REDIS_PORT:6379}
     password: ${REDIS_PWD:redis123~~~}
 
