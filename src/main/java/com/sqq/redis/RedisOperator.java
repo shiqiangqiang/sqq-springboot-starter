@@ -13,7 +13,7 @@ public class RedisOperator {
 	private static final Logger log = LoggerFactory.getLogger(RedisOperator.class);
 	private static final String KEY_SPLIT = ":";	// 用于隔开项目前缀与缓存键值
 
-	@Autowired
+//	TODO @Autowired
 	private RedisTemplate redisTemplate;
 	
 	/**

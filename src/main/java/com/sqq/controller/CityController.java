@@ -1,21 +1,17 @@
 package com.sqq.controller;
 
+import com.sqq.domain.City;
+import com.sqq.service.CityService;
+import com.sqq.util.BackJsonResult;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.sqq.domain.City;
-import com.sqq.service.CityService;
-import com.sqq.util.BackJsonResult;
 
 /**
  * 城市对外接口
@@ -23,7 +19,7 @@ import com.sqq.util.BackJsonResult;
  *
  */
 @RestController
-@RequestMapping("/city")
+@RequestMapping("/api/city")
 public class CityController {
 	private static Logger log = LoggerFactory.getLogger(CityController.class);
 	
@@ -42,13 +38,9 @@ public class CityController {
 	@Autowired
 	private CityService cityService;
 	
-	@RequestMapping("/saveCity")
-	public BackJsonResult saveCity(){
-		log.info("保存城市，当前时间：{}, 操作人：{}", getCurrentTime(), "Jack");
-		City city = new City();
-		city.setCityCode("test00002");
-		city.setCityName("测试城市名称2");
-		city.setUpdateTime(new Date());
+	@PostMapping("addCity")
+	public BackJsonResult saveCity(@RequestBody City city){
+		log.info("保存城市，当前时间：{}, 操作人：{}, city: {}", getCurrentTime(), "Jack", city);
 		int count = 0;
 		try {
 			count = cityService.saveCity(city);
@@ -59,15 +51,14 @@ public class CityController {
 		return BackJsonResult.ok(MSG_SAVE_SUCCESS + count + MSG_SUFFIX);
 	}
 	
-	@RequestMapping("/updateCity")
-	public BackJsonResult updateCity(Integer id){
-		log.info("更新城市，当前时间：{}, 操作人：{}", getCurrentTime(), "Jack");
-		City city;
+	@PostMapping("/updateCity")
+	public BackJsonResult updateCity(@RequestBody City city){
+		log.info("更新城市，当前时间：{}, 操作人：{}, city: {}", getCurrentTime(), "Jack", city);
 		int count = 0;
 		try {
-			city = cityService.queryById(id);
+			city = cityService.queryById(city.getId());
 			if (city == null){
-				log.info("id为{}的城市不存在！", id);
+				log.info("id为{}的城市不存在！", city.getId());
 				return BackJsonResult.fail(MSG_UPDATE_EXCEPTION);
 			}
 			city.setCityName("修改-测试城市名称--4");
@@ -81,15 +72,14 @@ public class CityController {
 		return BackJsonResult.ok(MSG_UPDATE_SUCCESS + count + MSG_SUFFIX);
 	}
 	
-	@RequestMapping("/removeCity")
-	public BackJsonResult removeCity(){
-		log.info("删除城市，当前时间：{}, 操作人：{}", getCurrentTime(), "Jack");
-		String cityCode = "test00001";
+	@GetMapping("/removeCity")
+	public BackJsonResult removeCity(@RequestParam Integer id){
+		log.info("删除城市，当前时间：{}, 操作人：{}, id:{}", getCurrentTime(), "Jack", id);
 		int count = 0;
 		try {
-			count = cityService.removeCityById(8002);
+			count = cityService.removeCityById(id);
 		} catch (Exception e) {
-			log.error("删除城市出现异常，cityCode:{}, exception:{}", cityCode, e.getMessage());
+			log.error("删除城市出现异常，id:{}, exception:{}", id, e.getMessage());
 			return BackJsonResult.fail(MSG_DELETE_EXCEPTION);
 		}
 		return BackJsonResult.ok(MSG_DELETE_SUCCESS + count + MSG_SUFFIX);
@@ -108,13 +98,11 @@ public class CityController {
 		}
 		return BackJsonResult.ok(MSG_SELECT_SUCCESS + cityList.size() + MSG_SUFFIX, cityList);
 	}
-	
+
 	/**
-	 * Description: 分页查询城市列表
-	 * @param pageNo	页码
+	 * 分页查询城市列表
+	 * @param pageNum
 	 * @return
-	 * @author shiqiangqiang  
-	 * @date 2018年8月25日
 	 */
 	@GetMapping("/queryCityListPaged")
 	public BackJsonResult queryCityListPaged(@RequestParam("pageNum") Integer pageNum){
