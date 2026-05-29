@@ -1,16 +1,18 @@
-# 1. 改用国内拉取稳定的 Tomcat 镜像（JDK8 + Tomcat9）
-FROM tomcat:9.0-jdk8-corretto
+# 改用国内稳定的 OpenJDK 镜像
+FROM openjdk:8-jre-alpine
 
-# 2. 设置时区，避免时间问题
+# 设置时区
 ENV TZ=Asia/Shanghai
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-# 3. 复制 war 包到 Tomcat 的 webapps 目录，命名为 sqq-springboot-starter.war
-# 这样访问时就不用加项目名了，直接访问根路径
-COPY target/sqq-springboot-starter-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/ROOT.war
+# 工作目录
+WORKDIR /app
 
-# 4. 暴露 Tomcat 默认端口 8080
+# 复制打包好的 jar 包（名字改成你 target 目录下的 jar 全名）
+COPY target/sqq-springboot-starter-0.0.1-SNAPSHOT.jar app.jar
+
+# 暴露端口
 EXPOSE 8080
 
-# 5. 启动 Tomcat（镜像默认的启动命令，不用自己写）
-CMD ["catalina.sh", "run"]
+# 启动命令
+ENTRYPOINT ["java", "-jar", "app.jar"]

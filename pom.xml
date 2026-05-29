@@ -6,7 +6,7 @@
 	<groupId>com.sqq</groupId>
 	<artifactId>sqq-springboot-starter</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 
 	<name>sqq-springboot-starter</name>
 	<description>Demo project for Spring Boot</description>
