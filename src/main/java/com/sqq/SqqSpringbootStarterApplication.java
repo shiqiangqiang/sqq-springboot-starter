@@ -6,6 +6,7 @@ import org.redisson.config.Config;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.scheduling.annotation.EnableAsync;
@@ -22,12 +23,14 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableAsync
 // 读取自定义properties文件
 @PropertySource(value = {"classpath:/config/business-config.properties"})
+// 开启 Nacos 服务注册
+@EnableDiscoveryClient
 public class SqqSpringbootStarterApplication {
 
-	@Value("${spring.redis.host}")
+	@Value("${spring.redis.host:127.0.0.1}")
 	private String redisHost;
 
-	@Value("${spring.redis.port}")
+	@Value("${spring.redis.port:6370}")
 	private int redisPort;
 
 	@Value("${spring.redis.password:}")
@@ -42,7 +45,7 @@ public class SqqSpringbootStarterApplication {
 		Config config = new Config();
 		// 此为单机模式
 		String address = "redis://" + redisHost + ":" + redisPort;
-		config.useSingleServer().setAddress(address).setDatabase(0);
+		config.useSingleServer().setAddress(address).setDatabase(0).setPassword(redisPassword);
 
 		// 集群模式
         /*config.useClusterServers()

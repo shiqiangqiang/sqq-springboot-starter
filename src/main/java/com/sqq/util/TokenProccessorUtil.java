@@ -2,7 +2,7 @@ package com.sqq.util;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import sun.misc.BASE64Encoder;
+import java.util.Base64;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -43,8 +43,7 @@ public class TokenProccessorUtil {
             MessageDigest messageDigest = MessageDigest.getInstance("md5");
             byte[] md5 = messageDigest.digest(tokenFormat.getBytes());
             //base64编码--任意二进制编码明文字符
-            BASE64Encoder encoder = new BASE64Encoder();
-            token = encoder.encode(md5);
+            Base64.getEncoder().encode(md5);
 
         } catch (NoSuchAlgorithmException e) {
             log.error("TokenProccessorUtil produceToken, has error! ex:" + e);
