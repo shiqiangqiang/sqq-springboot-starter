@@ -8,7 +8,7 @@ spring:
       config:
         server-addr: 101.132.78.113:8848
         username: nacos
-        password: nacos~~~123
+        password: ${NACOS_PWD}
         # 选择环境，本地开发写 dev，部署到 stg 改成 stg
         namespace: stg
         group: DEFAULT_GROUP
@@ -23,4 +23,4 @@ spring:
       discovery:
         server-addr: 101.132.78.113:8848  # 注册中心地址也要配置
         username: nacos
-        password: nacos~~~123
+        password: ${NACOS_PWD}
